@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 
 interface Article {
   id: number
   tag: string
-  color: string
   tagColor: string
   emoji: string
   title: string
@@ -12,46 +10,89 @@ interface Article {
   body: string
   time: string
   readTime: string
+  imgUrl: string
 }
 
 const articles: Article[] = [
   {
     id: 1,
-    tag: '🇧🇷 Brasil',
-    color: '#1a3a1a',
-    tagColor: '#22c55e',
-    emoji: '🌟',
+    tag: 'BRASIL',
+    tagColor: '#ffe243',
+    emoji: '🇧🇷',
     title: 'Neymar está de volta! Ancelotti convoca o camisa 10 para a Copa 2026',
-    excerpt: 'Após 31 meses fora da Seleção, Neymar é convocado por Carlo Ancelotti para a Copa do Mundo 2026. O atacante do Santos volta após lesão gravíssima no joelho.',
+    excerpt: 'Após 31 meses fora da Seleção, Neymar é convocado por Carlo Ancelotti. O atacante do Santos volta após lesão gravíssima no joelho.',
     body: `É OFICIAL! Neymar está convocado para a Copa do Mundo 2026! 🇧🇷
 
 Carlo Ancelotti anunciou os 26 jogadores que vão defender o Brasil no Mundial em evento realizado no Museu do Amanhã, no Rio de Janeiro, no dia 18 de maio de 2026.
 
-A principal novidade é o retorno de Neymar após 31 meses sem jogar pela Seleção. Sua última partida foi em outubro de 2023, quando sofreu ruptura do ligamento cruzado anterior e do menisco do joelho esquerdo no jogo contra o Uruguai pelas Eliminatórias.
-
-O elenco convocado tem valor de mercado estimado em 908,7 milhões de euros (R$ 5,32 bilhões), segundo o Transfermarkt.
-
-⚠️ Desfalques importantes: Éder Militão, Rodrygo e Estêvão sofreram lesões graves e ficaram de fora.
+A principal novidade é o retorno de Neymar após 31 meses sem jogar pela Seleção. Sua última partida foi em outubro de 2023, quando sofreu ruptura do ligamento cruzado anterior do joelho esquerdo no jogo contra o Uruguai pelas Eliminatórias.
 
 Destaques da convocação:
 • Neymar (Santos) — o grande retorno
 • Vini Jr. (Real Madrid) — avaliado em 150 mi de euros
 • Endrick (Real Madrid)
-• Bruno Guimarães (Newcastle) — 75 mi de euros
-• Alisson, Casemiro e Marquinhos — lideranças do grupo
-• Rayan — jovem promessa`,
-    time: 'há 4 dias',
-    readTime: '4 min de leitura',
+• Bruno Guimarães (Newcastle)
+• Alisson, Casemiro e Marquinhos — lideranças do grupo`,
+    time: 'há 2 horas',
+    readTime: '4 min',
+    imgUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAoR6KCotAJl1JRZ9VcFUFafp6_uRHbvuJIhleuMrqmCTehsxxEnhGcMg9-W9-jILt6L5gGcDPYoRAsloTeD0-_lfDZYs-2UzvCWAvDo3LRJX30XO34GSnuuAhS2Mdwr1YPqd1WAcxbE7t_gv_SFm9h747SmDAb7YeFhqszbCYkHaK-74xzOsKkt_VJ3VL1tA7FpJcZxzwamWKFBLhtZVVmWHg4-4FtA6-dmB8uY5k-N6jsQfRsEuuFVv9hqfhJ7WOlyrjTfMmQLAY',
   },
   {
     id: 2,
-    tag: '⚽ Jogos do Brasil',
-    color: '#1e3a1a',
-    tagColor: '#4ade80',
-    emoji: '🇧🇷',
-    title: 'Grupo C: veja os jogos do Brasil na fase de grupos da Copa 2026',
-    excerpt: 'Brasil cai no Grupo C ao lado de Marrocos, Escócia e Haiti. Estreia é dia 13 de junho contra os marroquinos no MetLife Stadium.',
-    body: `O Brasil está no Grupo C da Copa do Mundo 2026 e tem um caminho favorável na fase de grupos.
+    tag: 'SEDE',
+    tagColor: '#65df76',
+    emoji: '🏟️',
+    title: 'Logística Avançada: Estádios 100% Prontos para a Copa 2026',
+    excerpt: 'O comitê organizador confirma que toda a infraestrutura está operando sob protocolos de elite nos três países-sede.',
+    body: `A Copa do Mundo FIFA 2026 acontece de 11 de junho a 19 de julho em três países simultaneamente.
+
+🇺🇸 ESTADOS UNIDOS (11 cidades):
+Nova York/Nova Jersey, Los Angeles, Dallas, San Francisco, Miami, Seattle, Boston, Atlanta, Kansas City, Guadalupe e Los Angeles SoFi.
+
+🇲🇽 MÉXICO (3 cidades):
+Cidade do México (Estádio Azteca), Guadalajara e Monterrey.
+
+🇨🇦 CANADÁ (2 cidades):
+Toronto e Vancouver.
+
+A final será no MetLife Stadium em Nova Jersey no dia 19 de julho — o mesmo estádio da estreia do Brasil!`,
+    time: 'há 4 horas',
+    readTime: '3 min',
+    imgUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAW20SKdnJzYvjH99ba-EdYkwO5bQvvjPfrfseerxVDmDQX7x3DzxG2VqEL7l2MHD43Cx-BjGggcjuiskGFEN1u8AFqz0ioXfu3pauYVW70ZqZUf_Y-tEAoJx8uQRKpmtFAFzIN334DtcZqe84LWpLY_CQKYJo8SJkWVSm3S_EtgRZNeN2EDxSV0AiaPdFZiWgyM4OR4OkXOYpo3JFeeT16FJB1B-kRNeuZoHSi3bnss2N9kY919zcHrSnlSjGG0US41rbf8zVLFZs',
+  },
+  {
+    id: 3,
+    tag: 'ANÁLISE',
+    tagColor: '#65df76',
+    emoji: '📊',
+    title: 'Big Data: Algoritmos de IA calculam probabilidades do Hexa',
+    excerpt: 'Sistemas de inteligência artificial processam milhões de dados para prever o desempenho da Seleção Brasileira em 2026.',
+    body: `O Brasil chega à Copa 2026 com um elenco forte mas com dúvidas importantes.
+
+✅ PONTOS FORTES:
+• Vini Jr. — melhor jogador do mundo em 2024, avaliado em 150 milhões de euros
+• Neymar — o retorno emocional aos 34 anos, provavelmente sua última Copa
+• Endrick — jovem prodígio do Real Madrid, 19 anos
+• Ancelotti — técnico mais vitorioso da história da Champions League
+
+❌ PREOCUPAÇÕES:
+• Éder Militão — lesionado, não vai à Copa
+• Rodrygo — lesão grave, grande perda no ataque
+• Estêvão — o garoto mais aguardado ficou de fora
+
+🏆 VEREDITO: O Brasil é favorito, mas não isolado. Argentina e França chegam fortíssimas.`,
+    time: 'há 6 horas',
+    readTime: '5 min',
+    imgUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcmYT8wZv0FhLalgoNbTgSATwVmTURtZs8we_RldK4EHN1n3eOZSKGw5twv5HXBh1gwR9Na6QdQYuNNsMwlWfVz-AzNelPcEWJqKP-NbVUaN1eVdiEm0DgvwQPR5kTpHSS1HBuWVzqHCFPoLlsijEB7xLw18cjRxCoLMrW7aVAGulEYgTxqeXJlH_fl9wXiWwQgQ93ULR0xkpDrQfNptM25ymAb-wdioi_kkXEU4rAW84wN6Nctksj1JPjHcj6-eo1e_2kJe-nRjw',
+  },
+  {
+    id: 4,
+    tag: 'BRASIL',
+    tagColor: '#ffe243',
+    emoji: '⚽',
+    title: 'Grupo C: veja os jogos do Brasil na fase de grupos',
+    excerpt: 'Brasil cai no Grupo C ao lado de Marrocos, Escócia e Haiti. Estreia é dia 13 de junho no MetLife Stadium.',
+    body: `O Brasil está no Grupo C da Copa do Mundo 2026.
 
 📅 CALENDÁRIO DO BRASIL:
 
@@ -60,153 +101,42 @@ Destaques da convocação:
 🕖 19h (horário de Brasília)
 
 🗓️ 19 de junho — Brasil x Escócia
-📍 A definir
-🕖 A confirmar
 
 🗓️ 24 de junho — Brasil x Haiti
-📍 A definir
-🕖 A confirmar
 
-Se classificar entre os melhores do grupo, o Brasil estreia no mata-mata no dia 29 de junho, com local e adversário dependendo da posição final.
-
-O Brasil foi cabeça de chave no sorteio, realizado em dezembro de 2025, ao lado de Alemanha, Argentina, França, Espanha, Inglaterra, Portugal, Países Baixos, Bélgica e os três anfitriões (EUA, Canadá e México).
-
-A estratégia de Ancelotti deve variar entre 4-4-2 e 4-3-3 dependendo do adversário.`,
-    time: 'há 4 dias',
-    readTime: '3 min de leitura',
-  },
-  {
-    id: 3,
-    tag: '🌎 Sede',
-    color: '#1e3050',
-    tagColor: '#3b82f6',
-    emoji: '🏟️',
-    title: 'Copa 2026: EUA, Canadá e México — tudo sobre as sedes e estádios',
-    excerpt: 'Pela primeira vez na história, três países sediam a Copa do Mundo ao mesmo tempo. São 16 cidades e 104 jogos ao longo de 39 dias.',
-    body: `A Copa do Mundo FIFA 2026 acontece de 11 de junho a 19 de julho de 2026 em três países simultaneamente — uma inédita na história do torneio.
-
-🇺🇸 ESTADOS UNIDOS (11 cidades-sede):
-Nova York/Nova Jersey, Los Angeles, Dallas, San Francisco, Miami, Seattle, Boston, Atlanta, Kansas City, Guadalupe e Los Angeles SoFi.
-
-🇲🇽 MÉXICO (3 cidades-sede):
-Cidade do México (Estádio Azteca), Guadalajara e Monterrey.
-
-🇨🇦 CANADÁ (2 cidades-sede):
-Toronto e Vancouver.
-
-🏆 FORMATO DO TORNEIO:
-• 48 seleções participantes (antes eram 32)
-• 12 grupos de 4 times cada
-• 104 partidas no total
-• Os 2 primeiros de cada grupo + 8 melhores terceiros avançam
-
-📍 ABERTURA:
-O jogo inaugural será México x África do Sul no histórico Estádio Azteca, na Cidade do México, no dia 11 de junho às 16h (horário de Brasília).
-
-🏅 FINAL:
-19 de julho no MetLife Stadium, em Nova Jersey (EUA) — o mesmo estádio da estreia do Brasil!`,
-    time: 'há 5 dias',
-    readTime: '5 min de leitura',
-  },
-  {
-    id: 4,
-    tag: '🌍 48 Seleções',
-    color: '#2d1f3d',
-    tagColor: '#a855f7',
-    emoji: '🗺️',
-    title: 'Copa 2026 terá 48 países: veja os grupos e as seleções classificadas',
-    excerpt: 'Pela primeira vez o Mundial terá 48 seleções divididas em 12 grupos. Conheça todos os países confirmados e os grandes favoritos ao título.',
-    body: `A Copa 2026 é histórica também pelo número de participantes: 48 seleções, divididas em 12 grupos de 4 times.
-
-🏆 FAVORITOS AO TÍTULO:
-🇫🇷 França — atual vice-campeã (2022)
-🇦🇷 Argentina — atual campeã (2022)
-🇧🇷 Brasil — em busca do Hexa
-🇪🇸 Espanha — campeã da Eurocopa 2024
-🇩🇪 Alemanha — sempre perigosa
-🇵🇹 Portugal — com Cristiano Ronaldo (41 anos!)
-🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra — forte geração
-
-📊 VAGAS POR CONFEDERAÇÃO:
-• UEFA (Europa): 16 vagas
-• CONMEBOL (América do Sul): 6 vagas
-• CONCACAF (América do Norte/Central): 6 vagas + 3 anfitriões
-• AFC (Ásia): 8 vagas
-• CAF (África): 9 vagas
-• OFC (Oceania): 1 vaga
-
-GRUPO A: México, Coreia do Sul, República Tcheca, África do Sul
-GRUPO C: Brasil, Marrocos, Escócia, Haiti
-
-A Copa terá pela primeira vez uma final com show no intervalo no estilo Super Bowl — o Coldplay está envolvido na escolha dos artistas que vão se apresentar.`,
-    time: 'há 6 dias',
-    readTime: '6 min de leitura',
+O Brasil foi cabeça de chave no sorteio realizado em dezembro de 2025.`,
+    time: 'há 1 dia',
+    readTime: '3 min',
+    imgUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAoR6KCotAJl1JRZ9VcFUFafp6_uRHbvuJIhleuMrqmCTehsxxEnhGcMg9-W9-jILt6L5gGcDPYoRAsloTeD0-_lfDZYs-2UzvCWAvDo3LRJX30XO34GSnuuAhS2Mdwr1YPqd1WAcxbE7t_gv_SFm9h747SmDAb7YeFhqszbCYkHaK-74xzOsKkt_VJ3VL1tA7FpJcZxzwamWKFBLhtZVVmWHg4-4FtA6-dmB8uY5k-N6jsQfRsEuuFVv9hqfhJ7WOlyrjTfMmQLAY',
   },
   {
     id: 5,
-    tag: '🎯 Análise',
-    color: '#3a2010',
-    tagColor: '#f97316',
-    emoji: '📊',
-    title: 'Brasil favorito ao Hexa? Veja análise do elenco de Ancelotti para 2026',
-    excerpt: 'Com Neymar de volta e Vini Jr no auge, o Brasil chega como um dos favoritos. Mas lesões de Militão, Rodrygo e Estêvão preocupam a torcida.',
-    body: `O Brasil chega à Copa 2026 com um elenco forte mas com dúvidas importantes. Veja a análise completa:
-
-✅ PONTOS FORTES:
-
-🔥 Vini Jr. — melhor jogador do mundo em 2024, avaliado em 150 milhões de euros. Será a grande estrela do time.
-
-💛 Neymar — o retorno emocional. Aos 34 anos, volta após 31 meses para sua provavelmente última Copa. Liderança dentro e fora de campo é fundamental.
-
-⚡ Endrick — jovem prodígio do Real Madrid, promete ser surpresa positiva aos 19 anos.
-
-🧠 Ancelotti — técnico mais vitorioso da história da Champions League. Primeira Copa como treinador.
-
-❌ PREOCUPAÇÕES:
-
-• Éder Militão — lesionado, não vai à Copa. Era titular absoluto da defesa.
-• Rodrygo — lesão grave. Grande perda no ataque.
-• Estêvão — o garoto mais aguardado ficou de fora por lesão.
-• Neymar — estará 100%? Ainda há dúvidas sobre sua condição física real.
-
-🏆 VEREDITO:
-O Brasil é favorito, mas não isolado. Argentina e França também chegam fortíssimas. O Hexa depende da saúde do grupo e da forma de Neymar e Vini Jr.`,
-    time: 'há 3 dias',
-    readTime: '5 min de leitura',
-  },
-  {
-    id: 6,
-    tag: '🎬 Curiosidades',
-    color: '#1a2a3a',
-    tagColor: '#38bdf8',
-    emoji: '🌟',
-    title: 'Copa 2026: show do Coldplay, NBA no futebol e outras novidades inéditas',
-    excerpt: 'A Copa 2026 promete revolucionar o entretenimento do futebol mundial com shows, experiências ao estilo NBA e a maior final da história.',
+    tag: 'CURIOSIDADES',
+    tagColor: '#65df76',
+    emoji: '🎸',
+    title: 'Show do Coldplay na final e experiência ao estilo NBA na Copa 2026',
+    excerpt: 'A Copa 2026 promete revolucionar o entretenimento do futebol mundial com shows, experiências inéditas e a maior final da história.',
     body: `A Copa do Mundo 2026 não será apenas mais um Mundial. Será uma revolução no entretenimento esportivo.
 
 🎸 SHOW NA FINAL:
-Pela primeira vez na história, a final da Copa terá um show no intervalo no estilo Super Bowl americano. O Coldplay está envolvido na curadoria dos artistas — promete ser épico!
+Pela primeira vez na história, a final da Copa terá um show no intervalo no estilo Super Bowl americano.
 
 🏀 FUTEBOL NO ESTILO NBA:
-Neymar falou ao Disney+ sobre as novidades: "Você não vai a um jogo de basquete (NBA) apenas para assistir a um jogo. Há um show. Há um intervalo, as pessoas saem para dançar."
-
-O craque espera que a Copa mude a experiência do torcedor dentro dos estádios, com entretenimento antes, durante e depois dos jogos.
+Haverá entretenimento antes, durante e depois dos jogos dentro dos estádios.
 
 📺 NÚMEROS HISTÓRICOS:
 • 104 partidas (recorde absoluto)
-• 48 seleções (16 a mais que em 2022)
+• 48 seleções participantes
 • 39 dias de competição
-• 16 cidades-sede em 3 países
-• Mais de 5 milhões de ingressos disponíveis
-
-🕐 ABERTURA TRIPLA:
-Pela primeira vez, a cerimônia de abertura será realizada simultaneamente nos três países-sede — México, EUA e Canadá.
-
-Será, muito provavelmente, a maior Copa do Mundo da história. 🏆`,
+• 16 cidades-sede em 3 países`,
     time: 'há 2 dias',
-    readTime: '4 min de leitura',
+    readTime: '4 min',
+    imgUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcmYT8wZv0FhLalgoNbTgSATwVmTURtZs8we_RldK4EHN1n3eOZSKGw5twv5HXBh1gwR9Na6QdQYuNNsMwlWfVz-AzNelPcEWJqKP-NbVUaN1eVdiEm0DgvwQPR5kTpHSS1HBuWVzqHCFPoLlsijEB7xLw18cjRxCoLMrW7aVAGulEYgTxqeXJlH_fl9wXiWwQgQ93ULR0xkpDrQfNptM25ymAb-wdioi_kkXEU4rAW84wN6Nctksj1JPjHcj6-eo1e_2kJe-nRjw',
   },
 ]
+
+const TROPHY_URL = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDxiRC3tDVL-XuiyCq849oO1pdw9LPQp7WcVvhau7DVEGNiGGFW8jiTOpS0-3va2TctyRcuSaUKRYKv53ZnlUBwJJoQL_xns6jvqHAjVPxbXMTKdMcgmuc4SPIeMs_u6EhlmqpTNYf8EJjSIwQcNwFqI4MtjBgTG3MzTDlVLTq3KoQi3PqOMikIzcdgryyprFBx3JCugvohL26Ww2rUqXOgPDVpsSUmL_y9MifUi4_1BhLogQPTaryWNkcAtrjHlDnMyiSNDEOO7U'
+const BALL_URL = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAU_m8oovJ79nOcQ7N0tbhROaMHLl2YNjcHsO9T7KZxU660jqnS1P1aOWcWYmFrmkOUIpJl51NKlAXPP9nLmWY7T1vNu7osZC9PUyFRbPLN-c_XGW6hplk_3gD823nLPXTwT5qhLys4TGZqnNPnEoqZHQvTVnfhrDJU8lhB23uqb4m10BP3AueLE37PXRHJJN2NH-upLKSuszCz63H8WUOjWn_YjZutUHarujX7Ue8kY_tnY97n7XErnBHOq6prK9M0rlKKlhHyVcI'
 
 function now() {
   const d = new Date()
@@ -220,8 +150,9 @@ export default function App() {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null)
   const [isRevalidating, setIsRevalidating]   = useState(false)
   const [swLogs, setSwLogs] = useState([
-    { time: now(), msg: '[SW] Service Worker registrado com sucesso ✓', type: 'hit' },
-    { time: now(), msg: '[SW] Estratégia: Stale-While-Revalidate ativa', type: 'revalidate' },
+    { time: now(), msg: 'Fetching news assets from global edge...', type: 'hit' },
+    { time: now(), msg: 'Database synchronized with FIFA Hub', type: 'revalidate' },
+    { time: now(), msg: 'Local cache validated: 100%', type: 'hit' },
   ])
 
   function addLog(msg: string, type: string) {
@@ -229,27 +160,40 @@ export default function App() {
   }
 
   useEffect(() => {
-    const up   = () => { setIsOffline(false); addLog('[SW] Rede restaurada — revalidando...', 'fetch') }
-    const down = () => { setIsOffline(true);  addLog('[SW] Offline — Cache Only ativado', 'offline') }
+    const up   = () => { setIsOffline(false); addLog('Network restored — revalidating cache...', 'fetch') }
+    const down = () => { setIsOffline(true);  addLog('Network lost — Cache Only activated', 'offline') }
     window.addEventListener('online',  up)
     window.addEventListener('offline', down)
     return () => { window.removeEventListener('online', up); window.removeEventListener('offline', down) }
   }, [])
 
+  // Auto log
+  useEffect(() => {
+    const msgs = [
+      'Syncing stadium humidity data...',
+      'Fetching Real-time FIFA World Ranking...',
+      'New content payload received',
+      'Encrypting user preferences...',
+      'System load: 12% - All cores optimal',
+      'Article cached: Neymar Jr recovery protocol',
+    ]
+    const interval = setInterval(() => {
+      if (!isOffline) addLog(msgs[Math.floor(Math.random() * msgs.length)], 'fetch')
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [isOffline])
+
   function toggleOffline() {
     if (!isOffline) {
       setIsOffline(true)
-      addLog('[SW] Simulando modo offline...', 'offline')
-      addLog(`[SW] ${cachedIds.length} artigos disponíveis no cache`, 'hit')
+      addLog('Simulating offline mode...', 'offline')
+      addLog(`${cachedIds.length} articles available in cache`, 'hit')
     } else {
       setIsOffline(false)
       setIsRevalidating(true)
-      addLog('[SW] Rede restaurada', 'fetch')
-      addLog('[SW] Stale-While-Revalidate: revalidando em background...', 'revalidate')
-      setTimeout(() => {
-        setIsRevalidating(false)
-        addLog('[SW] Cache atualizado ✓', 'hit')
-      }, 1800)
+      addLog('Network restored', 'fetch')
+      addLog('Stale-While-Revalidate: updating cache in background...', 'revalidate')
+      setTimeout(() => { setIsRevalidating(false); addLog('Cache updated ✓', 'hit') }, 1800)
     }
   }
 
@@ -257,142 +201,206 @@ export default function App() {
     setSelectedArticle(article)
     const hit = cachedIds.includes(article.id)
     if (hit) {
-      addLog(`[SW] Cache HIT → /article/${article.id}`, 'hit')
-      if (!isOffline) setTimeout(() => addLog(`[SW] Revalidando /article/${article.id} em background...`, 'revalidate'), 600)
+      addLog(`Cache HIT → /article/${article.id}`, 'hit')
+      if (!isOffline) setTimeout(() => addLog(`Revalidating /article/${article.id} in background...`, 'revalidate'), 600)
     } else {
-      addLog(`[SW] Cache MISS → GET /article/${article.id}`, 'fetch')
-      setTimeout(() => {
-        setCachedIds(prev => [...prev, article.id])
-        addLog(`[SW] /article/${article.id} salvo no CacheStorage ✓`, 'hit')
-      }, 400)
+      addLog(`Cache MISS → GET /article/${article.id}`, 'fetch')
+      setTimeout(() => { setCachedIds(prev => [...prev, article.id]); addLog(`/article/${article.id} saved to CacheStorage ✓`, 'hit') }, 400)
     }
   }
 
   function getFiltered() {
-    if (activeTab === 'brasil') return articles.filter(a => a.tag.includes('Brasil') || a.tag.includes('Jogos') || a.tag.includes('Análise'))
-    if (activeTab === 'cached') return articles.filter(a => cachedIds.includes(a.id))
+    if (activeTab === 'brasil') return articles.filter(a => a.tag === 'BRASIL')
+    if (activeTab === 'salvas') return articles.filter(a => cachedIds.includes(a.id))
     return articles
   }
 
-  const logColor: Record<string,string> = { hit:'#4ade80', fetch:'#60a5fa', revalidate:'#a78bfa', offline:'#f87171' }
+  const logColor: Record<string,string> = { hit:'#65df76', fetch:'#60a5fa', revalidate:'#a78bfa', offline:'#f87171' }
 
-  const statusInfo = isRevalidating
-    ? { bg:'#1e3a5f', dot:'#60a5fa', text:'Revalidando em segundo plano...' }
-    : isOffline
-    ? { bg:'#3a2500', dot:'#f59e0b', text:'⚠  Modo Offline — lendo do cache' }
-    : { bg:'#0f2d1f', dot:'#4ade80', text:'Online — Cache ativo' }
+  const statusDot   = isRevalidating ? '#60a5fa' : isOffline ? '#f59e0b' : '#65df76'
+  const statusText  = isRevalidating ? 'Revalidando cache...' : isOffline ? '⚠ MODO OFFLINE — Cache Only' : 'System Status: Optimal'
+  const statusBg    = isRevalidating ? '#1e3a5f' : isOffline ? '#3a2500' : '#0e0e0e'
 
   return (
-    <div style={{ maxWidth:430, margin:'0 auto', minHeight:'100vh', display:'flex', flexDirection:'column', background:'#0f0f13', fontFamily:"'Inter','Segoe UI',system-ui,sans-serif", position:'relative', color:'#f1f5f9' }}>
+    <div style={{ fontFamily:"'Inter','Montserrat',system-ui,sans-serif", background:'#131313', minHeight:'100vh', color:'#e2e2e2', position:'relative', maxWidth:430, margin:'0 auto' }}>
 
-      {/* HEADER */}
-      <div style={{ background:'#0f0f13', borderBottom:'1px solid #1e1e2e', padding:'14px 18px', display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:100 }}>
-        <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-          <div style={{ width:36, height:36, borderRadius:10, background:'linear-gradient(135deg,#22c55e,#16a34a)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20 }}>⚽</div>
-          <div>
-            <div style={{ fontSize:17, fontWeight:700, letterSpacing:'-.3px' }}>Copa 2026</div>
-            <div style={{ fontSize:10, color:'#334155', letterSpacing:'.5px', textTransform:'uppercase' }}>Offline Manager</div>
-          </div>
+      {/* ── GOOGLE FONTS ── */}
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+      <style>{`
+        @keyframes rotate-ball { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes float-trophy { 0%,100%{transform:translateY(0) scale(1);filter:drop-shadow(0 0 20px rgba(255,223,67,.4))} 50%{transform:translateY(-12px) scale(1.05);filter:drop-shadow(0 0 40px rgba(255,223,67,.7))} }
+        @keyframes pulse-neon { 0%,100%{box-shadow:0 0 5px #65df76,0 0 10px #65df76;opacity:1} 50%{box-shadow:0 0 15px #65df76,0 0 25px #65df76;opacity:.7} }
+        @keyframes confetti { 0%{transform:translateY(-10px) rotate(0deg);opacity:.8} 100%{transform:translateY(100vh) rotate(360deg);opacity:0} }
+        .ball-spin{animation:rotate-ball 10s linear infinite}
+        .trophy-float{animation:float-trophy 6s ease-in-out infinite}
+        .neon-pulse{animation:pulse-neon 2s infinite}
+        .card-hover:hover{transform:translateY(-2px);border-color:rgba(101,223,118,.5)!important;transition:all .2s}
+        ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-thumb{background:#3e4a3d}
+      `}</style>
+
+      {/* ── HEADER ── */}
+      <header style={{ position:'sticky', top:0, zIndex:100, background:'rgba(19,19,19,.92)', backdropFilter:'blur(12px)', borderBottom:'1px solid #3e4a3d', padding:'12px 20px', display:'flex', alignItems:'center', justifyContent:'space-between', boxShadow:'0 0 15px rgba(101,223,118,.15)' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+          <img src={BALL_URL} alt="Ball" className="ball-spin" style={{ width:32, height:32 }} />
+          <span style={{ fontFamily:'Montserrat', fontWeight:900, fontSize:20, color:'#65df76', letterSpacing:'-.5px', textTransform:'uppercase' }}>COPA 2026</span>
         </div>
-        <button onClick={toggleOffline} style={{ background: isOffline ? '#3a2500' : '#0f2d1f', border:`1px solid ${isOffline?'#92400e':'#166534'}`, borderRadius:10, padding:'7px 14px', color: isOffline?'#fbbf24':'#4ade80', fontSize:13, fontWeight:600, cursor:'pointer' }}>
-          {isOffline ? '📵 Offline' : '📶 Online'}
+        <button onClick={toggleOffline} style={{ display:'flex', alignItems:'center', gap:6, padding:'5px 12px', background:'rgba(101,223,118,.08)', border:'1px solid rgba(101,223,118,.2)', borderRadius:99, cursor:'pointer' }}>
+          <div className="neon-pulse" style={{ width:8, height:8, borderRadius:'50%', background: isOffline ? '#f59e0b' : '#65df76' }} />
+          <span style={{ fontFamily:'JetBrains Mono', fontSize:11, color: isOffline ? '#f59e0b' : '#65df76', fontWeight:500, textTransform:'uppercase' }}>
+            {isOffline ? 'Offline' : 'Online'}
+          </span>
         </button>
+      </header>
+
+      {/* ── STATUS BAR ── */}
+      <div style={{ background: statusBg, padding:'6px 20px', display:'flex', alignItems:'center', gap:6, borderBottom:'1px solid #3e4a3d30' }}>
+        <span style={{ fontFamily:'monospace', fontSize:12 }}>⌨</span>
+        <span style={{ fontFamily:'JetBrains Mono', fontSize:10, color: statusDot, letterSpacing:2, textTransform:'uppercase' }}>{statusText}</span>
+        {!isOffline && <span style={{ marginLeft:'auto', fontFamily:'JetBrains Mono', fontSize:10, color:'rgba(101,223,118,.4)' }}>LATENCY: 14MS</span>}
       </div>
 
-      {/* STATUS */}
-      <div style={{ background: statusInfo.bg, padding:'8px 18px', display:'flex', alignItems:'center', gap:8, fontSize:12, fontWeight:600 }}>
-        <div style={{ width:7, height:7, borderRadius:'50%', background: statusInfo.dot }} />
-        <span style={{ color: statusInfo.dot }}>{statusInfo.text}</span>
-        <span style={{ marginLeft:'auto', fontSize:10, color:'#334155', fontWeight:400 }}>Stale-While-Revalidate</span>
-      </div>
+      {/* ── HERO ── */}
+      <section style={{ position:'relative', minHeight:280, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'radial-gradient(circle, rgba(35,166,70,.15) 0%, rgba(0,0,0,0) 70%)', padding:'20px' }}>
+        <div style={{ position:'absolute', inset:0, background:'linear-gradient(135deg, rgba(0,151,57,.08), rgba(255,223,0,.04), rgba(0,151,57,.08))', opacity:.5 }} />
+        <img src={TROPHY_URL} alt="Trophy" className="trophy-float" style={{ width:160, height:160, objectFit:'contain', position:'relative', zIndex:1 }} />
+        <div style={{ textAlign:'center', position:'relative', zIndex:1, marginTop:12 }}>
+          <h2 style={{ fontFamily:'Montserrat', fontWeight:900, fontSize:28, color:'#65df76', textTransform:'uppercase', letterSpacing:'-1px', textShadow:'0 0 20px rgba(101,223,118,.3)', margin:0 }}>A Caminho do Hexa</h2>
+          <p style={{ fontFamily:'JetBrains Mono', fontSize:10, color:'#ffe243', letterSpacing:'3px', textTransform:'uppercase', marginTop:4 }}>Rumo a 2026 | Operação Inteligência</p>
+        </div>
+        {/* Bola decorativa */}
+        <img src={BALL_URL} alt="" className="ball-spin" style={{ position:'absolute', top:16, right:16, width:40, height:40, opacity:.4 }} />
+      </section>
 
-      {/* TABS */}
-      <div style={{ display:'flex', background:'#0f0f13', borderBottom:'1px solid #1e1e2e', padding:'0 18px' }}>
-        {[['todas','Todas'],['brasil','🇧🇷 Brasil'],['cached','📦 Salvas']].map(([val,label]) => (
-          <button key={val} onClick={() => setActiveTab(val)} style={{ flex:1, padding:'11px 4px', fontSize:13, fontWeight:600, border:'none', background:'none', cursor:'pointer', borderBottom: activeTab===val ? '2px solid #22c55e' : '2px solid transparent', color: activeTab===val ? '#22c55e' : '#475569' }}>
-            {label}
+      {/* ── TABS ── */}
+      <nav style={{ position:'sticky', top:56, zIndex:50, background:'rgba(19,19,19,.85)', backdropFilter:'blur(12px)', borderBottom:'1px solid #3e4a3d', display:'flex', justifyContent:'center', gap:24, padding:'8px 0' }}>
+        {[['todas','grid_view','Todas'],['brasil','flag','Brasil'],['salvas','bookmark','Salvas']].map(([val, icon, label]) => (
+          <button key={val} onClick={() => setActiveTab(val)} style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:2, background: activeTab===val ? 'rgba(101,223,118,.1)' : 'none', border:'none', cursor:'pointer', padding:'4px 16px', borderRadius:99, transition:'all .2s' }}>
+            <span className="material-symbols-outlined" style={{ color: activeTab===val ? '#65df76' : '#bdcab9', fontSize:22 }}>{icon}</span>
+            <span style={{ fontFamily:'Montserrat', fontSize:10, fontWeight:700, color: activeTab===val ? '#65df76' : '#bdcab9', textTransform:'uppercase', letterSpacing:1 }}>{label}</span>
           </button>
         ))}
-      </div>
+      </nav>
 
-      {/* CARDS */}
-      <div style={{ flex:1, padding:'14px', display:'flex', flexDirection:'column', gap:12 }}>
+      {/* ── CARDS ── */}
+      <main style={{ padding:'16px', paddingBottom:160, display:'flex', flexDirection:'column', gap:12 }}>
         {getFiltered().length === 0 && (
-          <div style={{ textAlign:'center', padding:'60px 20px', color:'#475569', fontSize:14 }}>
+          <div style={{ textAlign:'center', padding:'60px 20px', color:'#64748b' }}>
             <div style={{ fontSize:40, marginBottom:12 }}>📦</div>
-            Nenhum artigo salvo ainda.<br />Leia os artigos online primeiro.
+            <p style={{ fontFamily:'JetBrains Mono', fontSize:12 }}>Nenhum artigo disponível.<br />Acesse online primeiro.</p>
           </div>
         )}
-        {getFiltered().map(article => {
+
+        {getFiltered().map((article, i) => {
           const isCached  = cachedIds.includes(article.id)
           const available = !isOffline || isCached
+          const featured  = i === 0
+
           return (
-            <div key={article.id} onClick={() => available && openArticle(article)}
-              style={{ background:'#16161f', borderRadius:16, border:'1px solid #1e1e2e', overflow:'hidden', cursor: available ? 'pointer' : 'not-allowed', opacity: available ? 1 : 0.35 }}
+            <div key={article.id} className="card-hover" onClick={() => available && openArticle(article)}
+              style={{ background:'#0e0e0e', borderRadius:12, border:'1px solid #3e4a3d', overflow:'hidden', cursor: available ? 'pointer' : 'not-allowed', opacity: available ? 1 : 0.35, transition:'all .2s' }}
             >
-              <div style={{ height:100, background:`linear-gradient(135deg, ${article.color} 0%, #0f0f13 100%)`, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 20px' }}>
-                <div style={{ fontSize:48 }}>{article.emoji}</div>
-                <div style={{ textAlign:'right' }}>
-                  <div style={{ fontSize:11, fontWeight:700, padding:'3px 10px', borderRadius:20, background: article.tagColor+'22', color: article.tagColor, border:`1px solid ${article.tagColor}44`, marginBottom:6 }}>{article.tag}</div>
-                  <div style={{ fontSize:10, color:'#475569' }}>{article.readTime}</div>
+              {/* Imagem */}
+              <div style={{ position:'relative', height: featured ? 200 : 140, overflow:'hidden' }}>
+                <img src={article.imgUrl} alt={article.title} style={{ width:'100%', height:'100%', objectFit:'cover', transition:'transform .7s' }} />
+                <div style={{ position:'absolute', inset:0, background:'linear-gradient(to top, #0e0e0e 0%, transparent 60%)' }} />
+                {featured && (
+                  <div style={{ position:'absolute', top:12, left:12, background:'#ffe243', color:'#393000', padding:'2px 10px', fontFamily:'JetBrains Mono', fontSize:10, fontWeight:700, borderRadius:2 }}>LIVE</div>
+                )}
+              </div>
+
+              {/* Body */}
+              <div style={{ padding:'12px 14px' }}>
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:6 }}>
+                  <div style={{ display:'flex', alignItems:'center', gap:6 }}>
+                    <span style={{ fontFamily:'JetBrains Mono', fontSize:10, color: article.tagColor, fontWeight:500 }}>{article.tag}</span>
+                    <div style={{ width:6, height:6, borderRadius:'50%', background: isCached ? '#65df76' : '#3e4a3d', boxShadow: isCached ? '0 0 6px #65df76' : 'none' }} />
+                    <span style={{ fontFamily:'JetBrains Mono', fontSize:9, color:'#bdcab9' }}>{isCached ? 'OFFLINE READY' : 'SEM CACHE'}</span>
+                  </div>
+                  <span style={{ fontFamily:'JetBrains Mono', fontSize:9, color:'#64748b' }}>{article.time}</span>
+                </div>
+                <h3 style={{ fontFamily:'Montserrat', fontWeight:800, fontSize: featured ? 18 : 15, lineHeight:1.3, color:'#e2e2e2', marginBottom:6 }}>{article.title}</h3>
+                <p style={{ fontSize:13, color:'#bdcab9', lineHeight:1.55, marginBottom:10 }}>{article.excerpt}</p>
+                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingTop:8, borderTop:'1px solid #3e4a3d' }}>
+                  <span style={{ fontFamily:'JetBrains Mono', fontSize:10, color:'#65df76', fontWeight:500 }}>⟶ Ler artigo</span>
+                  <span style={{ fontFamily:'JetBrains Mono', fontSize:9, color:'#64748b' }}>{article.readTime} leitura</span>
                 </div>
               </div>
-              <div style={{ padding:'14px 16px' }}>
-                <div style={{ fontSize:15, fontWeight:700, lineHeight:1.4, marginBottom:8, color:'#f1f5f9' }}>{article.title}</div>
-                <div style={{ fontSize:13, color:'#64748b', lineHeight:1.6, marginBottom:12 }}>{article.excerpt}</div>
-                <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingTop:10, borderTop:'1px solid #1e1e2e' }}>
-                  <div style={{ display:'flex', alignItems:'center', gap:6 }}>
-                    <div style={{ width:6, height:6, borderRadius:'50%', background: isCached ? '#4ade80' : '#334155' }} />
-                    <span style={{ fontSize:11, color: isCached ? '#4ade80' : '#475569', fontWeight:600 }}>{isCached ? 'Em cache' : 'Sem cache'}</span>
-                  </div>
-                  <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-                    <span style={{ fontSize:11, color:'#475569' }}>{article.time}</span>
-                    <span style={{ fontSize:12, fontWeight:700, color:'#22c55e' }}>Ler →</span>
-                  </div>
-                </div>
+              {/* Progress bar */}
+              <div style={{ height:2, background:'rgba(101,223,118,.1)' }}>
+                <div style={{ height:'100%', background:'#65df76', width: isCached ? '100%' : '0%', transition:'width 1s' }} />
               </div>
             </div>
           )
         })}
-      </div>
 
-      {/* SW CONSOLE */}
-      <div style={{ background:'#090910', borderTop:'1px solid #1e1e2e', padding:'10px 14px', maxHeight:120, overflowY:'auto' }}>
-        <div style={{ color:'#334155', fontSize:10, letterSpacing:.8, marginBottom:6, textTransform:'uppercase', fontFamily:'monospace' }}>⚙ Service Worker Console</div>
-        {swLogs.map((log, i) => (
-          <div key={i} style={{ display:'flex', gap:10, fontSize:11, padding:'1px 0', fontFamily:'monospace' }}>
-            <span style={{ color:'#334155', flexShrink:0 }}>{log.time}</span>
-            <span style={{ color: logColor[log.type] || '#94a3b8' }}>{log.msg}</span>
+        <div style={{ textAlign:'center', marginTop:8 }}>
+          <button style={{ background:'#65df76', color:'#003911', padding:'10px 32px', fontFamily:'Montserrat', fontWeight:800, fontSize:12, textTransform:'uppercase', letterSpacing:2, border:'none', cursor:'pointer', borderRadius:4, boxShadow:'0 0 20px rgba(101,223,118,.3)' }}>
+            Carregar Mais Dados
+          </button>
+        </div>
+      </main>
+
+      {/* ── SW CONSOLE ── */}
+      <div style={{ position:'fixed', bottom:64, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:430, background:'rgba(14,14,14,.96)', backdropFilter:'blur(12px)', borderTop:'1px solid rgba(101,223,118,.2)', padding:'8px 16px', maxHeight:100, overflow:'hidden', zIndex:50 }}>
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:4 }}>
+          <div style={{ display:'flex', alignItems:'center', gap:6 }}>
+            <div style={{ width:6, height:6, borderRadius:'50%', background:'#65df76', animation:'pulse-neon 2s infinite' }} />
+            <span style={{ fontFamily:'JetBrains Mono', fontSize:9, color:'#65df76', textTransform:'uppercase', letterSpacing:2 }}>Service Worker Logs</span>
+          </div>
+          <span style={{ fontFamily:'JetBrains Mono', fontSize:9, color:'#64748b' }}>v2.0.26-ALPHA</span>
+        </div>
+        {swLogs.slice(0,4).map((log, i) => (
+          <div key={i} style={{ display:'flex', gap:8, fontSize:11, fontFamily:'JetBrains Mono', padding:'1px 0' }}>
+            <span style={{ color:'#3e4a3d', flexShrink:0 }}>{log.time}</span>
+            <span style={{ color: logColor[log.type] || '#bdcab9' }}>&gt; [SW] {log.msg}</span>
           </div>
         ))}
       </div>
 
-      {/* ARTICLE VIEW */}
+      {/* ── BOTTOM NAV ── */}
+      <nav style={{ position:'fixed', bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:430, background:'rgba(14,14,14,.96)', backdropFilter:'blur(12px)', borderTop:'1px solid #3e4a3d', display:'flex', justifyContent:'space-around', alignItems:'center', height:64, zIndex:100 }}>
+        {[['todas','grid_view','Todas'],['brasil','flag','Brasil'],['salvas','bookmark','Salvas']].map(([val, icon, label]) => (
+          <div key={val} onClick={() => setActiveTab(val)} style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:2, cursor:'pointer', padding:'4px 16px', borderRadius:99, background: activeTab===val ? 'rgba(101,223,118,.1)' : 'none', transition:'all .2s' }}>
+            <span className="material-symbols-outlined" style={{ color: activeTab===val ? '#65df76' : '#bdcab9', fontSize:24 }}>{icon}</span>
+            <span style={{ fontFamily:'Montserrat', fontSize:10, fontWeight:700, color: activeTab===val ? '#65df76' : '#bdcab9', textTransform:'uppercase', letterSpacing:1 }}>{label}</span>
+          </div>
+        ))}
+      </nav>
+
+      {/* ── ARTICLE VIEW ── */}
       {selectedArticle && (
-        <div style={{ position:'absolute', top:0, left:0, right:0, bottom:0, background:'#0f0f13', zIndex:200, overflowY:'auto', display:'flex', flexDirection:'column' }}>
-          <div style={{ height:180, background:`linear-gradient(160deg, ${selectedArticle.color} 0%, #0f0f13 100%)`, display:'flex', flexDirection:'column', justifyContent:'space-between', padding:'14px 18px 18px', flexShrink:0 }}>
-            <button onClick={() => setSelectedArticle(null)} style={{ background:'rgba(255,255,255,.1)', border:'1px solid rgba(255,255,255,.15)', borderRadius:10, padding:'6px 14px', color:'#f1f5f9', fontSize:13, cursor:'pointer', alignSelf:'flex-start' }}>
+        <div style={{ position:'fixed', inset:0, background:'#131313', zIndex:200, overflowY:'auto', display:'flex', flexDirection:'column', maxWidth:430, margin:'0 auto' }}>
+          {/* Header com gradiente */}
+          <div style={{ minHeight:200, background:`linear-gradient(160deg, #003314 0%, #131313 100%)`, display:'flex', flexDirection:'column', justifyContent:'space-between', padding:'14px 20px 20px', flexShrink:0, position:'relative', overflow:'hidden' }}>
+            <img src={selectedArticle.imgUrl} alt="" style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', opacity:.2 }} />
+            <button onClick={() => setSelectedArticle(null)} style={{ background:'rgba(255,255,255,.1)', border:'1px solid rgba(255,255,255,.15)', borderRadius:8, padding:'6px 14px', color:'#e2e2e2', fontSize:13, cursor:'pointer', alignSelf:'flex-start', position:'relative', zIndex:1, fontFamily:'Montserrat', fontWeight:600 }}>
               ← Voltar
             </button>
-            <div>
-              <div style={{ fontSize:11, fontWeight:700, padding:'3px 10px', borderRadius:20, background: selectedArticle.tagColor+'22', color: selectedArticle.tagColor, border:`1px solid ${selectedArticle.tagColor}44`, display:'inline-block', marginBottom:8 }}>
-                {selectedArticle.tag}
-              </div>
-              <div style={{ fontSize:18, fontWeight:700, lineHeight:1.3, color:'#f1f5f9' }}>{selectedArticle.title}</div>
+            <div style={{ position:'relative', zIndex:1 }}>
+              <span style={{ fontFamily:'JetBrains Mono', fontSize:10, color: selectedArticle.tagColor, fontWeight:700, textTransform:'uppercase', letterSpacing:2 }}>{selectedArticle.tag}</span>
+              <h1 style={{ fontFamily:'Montserrat', fontWeight:900, fontSize:20, lineHeight:1.3, color:'#e2e2e2', marginTop:6 }}>{selectedArticle.title}</h1>
             </div>
           </div>
-          <div style={{ padding:'12px 18px', borderBottom:'1px solid #1e1e2e', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-            <span style={{ fontSize:12, color:'#475569' }}>{selectedArticle.time} · {selectedArticle.readTime}</span>
-            <span style={{ fontSize:12, fontWeight:600, color: cachedIds.includes(selectedArticle.id) ? '#4ade80' : '#60a5fa' }}>
-              {cachedIds.includes(selectedArticle.id) ? '🟢 Cache' : '🔵 Rede'}
+
+          {/* Meta */}
+          <div style={{ padding:'10px 20px', borderBottom:'1px solid #3e4a3d', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+            <span style={{ fontFamily:'JetBrains Mono', fontSize:10, color:'#64748b' }}>{selectedArticle.time} · {selectedArticle.readTime} leitura</span>
+            <span style={{ fontFamily:'JetBrains Mono', fontSize:10, fontWeight:600, color: cachedIds.includes(selectedArticle.id) ? '#65df76' : '#60a5fa' }}>
+              {cachedIds.includes(selectedArticle.id) ? '🟢 CACHE HIT' : '🔵 NETWORK'}
             </span>
           </div>
+        
+          {/* Banner offline */}
           {isOffline && (
-            <div style={{ margin:'14px 18px 0', background:'#3a250055', border:'1px solid #92400e', color:'#fbbf24', padding:'10px 14px', borderRadius:10, fontSize:12, fontWeight:600 }}>
-              ⚠ Modo Offline — conteúdo servido do cache local
+            <div style={{ margin:'14px 20px 0', background:'rgba(58,37,0,.6)', border:'1px solid #92400e', color:'#fbbf24', padding:'10px 14px', borderRadius:8, fontSize:12, fontWeight:600, fontFamily:'JetBrains Mono' }}>
+              ⚠ MODO OFFLINE — Conteúdo servido do cache local
             </div>
           )}
-          <div style={{ padding:'18px', fontSize:15, lineHeight:1.9, color:'#94a3b8', whiteSpace:'pre-line', flex:1 }}>
+
+          {/* Body */}
+          <div style={{ padding:'20px', fontSize:15, lineHeight:1.85, color:'#bdcab9', whiteSpace:'pre-line', flex:1, fontFamily:'Inter' }}>
             {selectedArticle.body}
           </div>
         </div>
